@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.scss']
 })
-export class WelcomeModuleComponent {
+export class WelcomeComponent {
   title = 'ng-doctor-schedule';
 }
