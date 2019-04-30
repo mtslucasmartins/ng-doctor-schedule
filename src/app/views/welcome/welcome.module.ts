@@ -6,6 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     RouterModule,
 
+    ButtonModule,
+    InputTextModule
   ],
   exports: [
     WelcomeComponent

@@ -10,6 +10,7 @@ import { SignInModule } from './views/sign-in/sign-in.module';
 import { SignUpModule } from './views/sign-up/sign-up.module';
 import { AuthGuard } from './guards/auth/auth.guard';
 import { AuthService } from './services/auth/auth.service';
+import { WelcomeModule } from './views/welcome/welcome.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AuthService } from './services/auth/auth.service';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
 
     SignInModule,
-    SignUpModule
+    SignUpModule,
+    WelcomeModule
   ],
   providers: [
     AuthGuard,
