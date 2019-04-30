@@ -1,5 +1,5 @@
 <div *ngIf="updateAvailable" class="alert alert-warning m-0" role="alert">
-  Uma nova versão está disponível!
+  Nova versão está disponível! <a href="#" (click)="refresh()">Refresh</a>
 </div>
 <div class="page-container overflow-hidden" [ngClass]="{'h-100': !updateAvailable}">
   <!-- <app-sidebar class="sidebar-menu"></app-sidebar> -->

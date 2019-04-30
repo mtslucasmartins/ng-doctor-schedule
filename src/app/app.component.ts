@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SwUpdate } from '@angular/service-worker';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +12,19 @@ export class AppComponent implements OnInit {
 
   title = 'ng-doctor-schedule';
 
+  constructor(public swUpdate: SwUpdate) { }
+
+  public refresh() {
+    window.location.reload();
+  }
+
   public ngOnInit() {
     this.updateAvailable = false;
+    if (this.swUpdate.isEnabled) {
+      this.swUpdate.available.subscribe(() => {
+        this.updateAvailable = true;
+      });
+    }
   }
 
 }

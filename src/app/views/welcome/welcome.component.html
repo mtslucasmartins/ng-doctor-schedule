@@ -1,2 +1,7 @@
-<input type="file" accept="image/*" capture="camera">
+<input type="file" accept="image/*" capture="camera" (change)="readURL($event);">
+
+
+<img id="blah" [src]="imageSrc || 'http://placehold.it/180'" alt="your image" />
+
+
 <a [routerLink]="['/sign-in']">Entrar</a>
