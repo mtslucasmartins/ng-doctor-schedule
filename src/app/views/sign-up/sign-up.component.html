@@ -1,0 +1,76 @@
+<div class="sign-up-component h-100 m-0 p-3">
+  <div class="container-fluid h-100">
+    <div class="row align-items-center justify-content-center h-100">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col sign-up-header text-center p-4">
+              <h4 class="m-0"> {{ 'Criar Conta' | uppercase }} </h4>
+              <p class="text-muted"> Preecha os campos abaixo: </p>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="row ui-fluid">
+            <form [formGroup]="signUpForm"  class="col">
+              <div class="form-group">
+                <label for="organization-name" class="d-none"><strong>Clínica</strong></label>
+                <input pInputText id="organization-name" type="text" class="form-control"
+                  aria-describedby="organization-name-help" placeholder="Nome da Clínica">
+                <small id="organization-name-help" class="d-none form-text text-muted">
+                  We'll never share your email with anyone else.
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="organization-cnpj" class="d-none"><strong>CPF/CNPJ</strong></label>
+                <input pInputText id="organization-cnpj" type="text" class="form-control"
+                  aria-describedby="organization-cnpj-help" placeholder="CPF/CNPJ da Clínica">
+                <small id="organization-cnpj-help" class="d-none form-text text-danger">
+                  We'll never share your email with anyone else.
+                </small>
+              </div>
+              
+              <hr>
+
+              <div class="form-group">
+                <label for="full-name" class="d-none"><strong>Nome Completo</strong></label>
+                <input pInputText formControlName="fullname" id="full-name" type="text" class="form-control" aria-describedby="full-name-help"
+                  placeholder="Nome Completo">
+                <small id="full-name-help" class="d-none form-text text-muted">
+                  We'll never share your email with anyone else.
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="email" class="d-none"> <strong>Email</strong></label>
+                <input pInputText formControlName="email" id="email" type="email" class="form-control" aria-describedby="email-help"
+                  placeholder="Seu Email">
+                <small id="email-help" class="d-none form-text text-muted">
+                  We'll never share your email with anyone else.
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="password" class="d-none"><strong>Senha</strong></label>
+                <input pInputText formControlName="password" id="password" type="password" class="form-control" placeholder="Senha">
+              </div>
+              <div class="form-group">
+                <label for="password-confirm" class="d-none"><strong>Confirmar Senha</strong></label>
+                <input pInputText id="password-confirm" type="password" class="form-control"
+                  aria-describedby="password-confirm-help" placeholder="Senha">
+                <small id="password-confirm-help-help" class="d-none form-text text-muted">
+                  We'll never share your email with anyone else.
+                </small>
+              </div>
+              <button pButton type="button" label="Inscrever-se"></button>
+              <hr>
+              <div class="form-group text-center">
+                <small class="form-text text-muted">
+                  Já tem uma conta? <a [routerLink]="['/sign-in']">Entrar</a>
+                </small>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
