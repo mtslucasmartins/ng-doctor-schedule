@@ -19,6 +19,10 @@ import { DashboardModule } from './views/dashboard/dashboard.module';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { UserModule } from './views/dashboard/users/users.module';
 
+export function jwtTokenGetter() {
+  return localStorage.getItem('access_token');
+}
+
 @NgModule({
   declarations: [
     AppComponent
@@ -32,10 +36,7 @@ import { UserModule } from './views/dashboard/users/users.module';
 
     JwtModule.forRoot({
       config: {
-        tokenGetter: () => {
-          return localStorage.getItem('access_token');
-        }
-        // whitelistedDomains: ['localhost:3001']
+        tokenGetter: jwtTokenGetter
       }
     }),
 
