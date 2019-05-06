@@ -1,0 +1,90 @@
+<div class="p-3">
+  <div class="container">
+    <div>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb-style1 p-0 p-md-2">
+          <li class="breadcrumb-item"><a [routerLink]="['/']">Dashboard</a></li>
+          <li class="breadcrumb-item"><a [routerLink]="['/users']">Usuários</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Novo</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="card p-0">
+      <div class="card-body">
+        <div class="row">
+          <div class="offset-10 col-2 offset-md-9 col-md-3">
+            <button class="btn btn-sm btn-info h-100 float-right" style="min-height: 35px;">
+              <span class="d-block d-md-none">
+                <i class="fas fa-save"></i>
+              </span>
+              <span class="d-none d-md-block d-lg-none">
+                <i class="fas fa-save"></i>&nbsp;&nbsp;Salvar
+              </span>
+              <span class="d-none d-lg-block">
+                <i class="fas fa-save"></i>&nbsp;&nbsp;Salvar Usuário
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <hr class="m-0">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="full-name" class="app-text"><small>Nome Completo *</small></label>
+              <input pInputText id="full-name" type="text" class="form-control" aria-describedby="full-name-help"
+                placeholder="">
+              <small id="full-name-help" class="d-none form-text text-muted">
+                We'll never share your email with anyone else.
+              </small>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="email" class="app-text"> <small>Email *</small></label>
+              <input pInputText id="email" type="email" class="form-control" aria-describedby="email-help"
+                placeholder="">
+              <small id="email-help" class="d-none form-text text-muted">
+                We'll never share your email with anyone else.
+              </small>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="password" class="app-text"><small>Senha *</small></label>
+              <input pInputText id="password" type="password" class="form-control" placeholder="********"
+                autocomplete="new-password">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="password-confirm" class="app-text"><small>Confirmar Senha *</small></label>
+              <input pInputText id="password-confirm" type="password" class="form-control"
+                aria-describedby="password-confirm-help" placeholder="********" autocomplete="new-password">
+              <small id="password-confirm-help-help" class="d-none form-text text-muted">
+                We'll never share your email with anyone else.
+              </small>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="card-body">
+        <!-- <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a> -->
+      </div>
+    </div>
+    <!-- <nav aria-label="breadcrumb">
+  <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Sales Monitoring</li>
+  </ol>
+</nav> -->
+  </div>
+</div>

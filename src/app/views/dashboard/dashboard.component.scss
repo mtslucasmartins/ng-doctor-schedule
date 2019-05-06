@@ -1,0 +1,128 @@
+$navbar-height: 63px;
+$sidebar-width: 280px;
+
+#layout-content {
+  // margin-left: $sidebar-width;
+  // padding-top: $navbar-height;
+  background-color: #f7f7f8;
+}
+
+.sidebar {
+  min-width: $sidebar-width !important;
+      width: $sidebar-width !important;
+  height: 100% !important;
+  
+  z-index: 999;
+  top: $navbar-height;
+  left: 0;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+  
+  background-color: #fff;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+
+  -webkit-transition: all 0.2s ease-in;
+     -moz-transition: all 0.2s ease-in;
+       -o-transition: all 0.2s ease-in;
+          transition: all 0.2s ease-in;
+
+  &.collapsed {
+    min-width: 0px !important;
+        width: 0px !important;
+  }
+
+  .sidebar-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+}
+
+.sidebar-wrapper {
+  
+
+  .nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+
+    margin-top: 20px;
+    float: none;
+    display: block;
+
+    li .nav-link i,
+    .nav li .nav-link i {
+      margin-right: 15px;
+      font-size: 18px;
+      width: 30px;
+      text-align: center;
+      vertical-align: middle;
+      float: left;
+    }
+
+    li .nav-link p,
+    .nav-link p {
+      margin: 0;
+      line-height: 31px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      display: inline-flex;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 0.5rem 1rem;
+    }
+
+    a {
+      -webkit-transition: all 150ms ease-in;
+      -moz-transition: all 150ms ease-in;
+      -o-transition: all 150ms ease-in;
+      -ms-transition: all 150ms ease-in;
+      transition: all 150ms ease-in;
+    }
+
+    li .nav-link {
+      color: #ffffff;
+      margin: 5px 15px;
+      opacity: 0.86;
+      border-radius: 4px;
+      display: flex;
+      padding: 10px 15px;
+      align-items: center;
+    }
+
+    li.active .nav-link {
+      color: #ffffff;
+      opacity: 1;
+      background: rgba(255, 255, 255, 0.23);
+    }
+
+    .nav-link {
+      color: #ffffff;
+      margin: 5px 15px;
+      opacity: 0.86;
+      border-radius: 4px;
+      text-transform: uppercase;
+      line-height: 30px;
+      font-size: 12px;
+      font-weight: 600;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.sidebar .nav li .nav-link:hover,
+body > .navbar-collapse .nav li .nav-link:hover {
+  background: rgba(255, 255, 255, 0.13);
+  opacity: 1;
+}

@@ -38,26 +38,15 @@
               </div>
 
               <div class="form-group">
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                  </div>
-                  <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="inputGroupFile01" (change)="readURL($event);"
-                      aria-describedby="inputGroupFileAddon01">
-                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                  </div>
-                </div>
                 <div class="container-fluid">
                   <div class="row">
-                    <picture>
-                      <source [srcset]="image || defaultImage" type="image/svg+xml">
-                      <img [src]="image || defaultImage" class="img-fluid img-thumbnail" alt="...">
-                    </picture>
-                    <!-- <img class="img-thumbnail"
-                      [src]="image || 'https://s3.amazonaws.com/cdn.leiturinha.com.br/blog/uploads/2018/09/livro-imagem.jpg'"
-                      alt="your image" /> -->
-
+                    <input id="file-input" class="d-none" type="file" (change)="readURL($event);">
+                    <label for="file-input" class="w-100 text-center">
+                      <picture>
+                        <source [srcset]="image || defaultImage" type="image/svg+xml">
+                        <img [src]="image || defaultImage" class="img-fluid img-thumbnail" alt="...">
+                      </picture>
+                    </label>
                   </div>
                 </div>
               </div>
@@ -75,12 +64,3 @@
     </div>
   </div>
 </div>
-
-<input type="file" accept="image/*" capture="camera" (change)="readURL($event);">
-
-
-<img id="blah" [src]="image || 'https://s3.amazonaws.com/cdn.leiturinha.com.br/blog/uploads/2018/09/livro-imagem.jpg'"
-  alt="your image" />
-
-
-<a [routerLink]="['/sign-in']">Entrar</a>

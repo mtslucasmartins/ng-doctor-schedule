@@ -1,4 +1,4 @@
-export class Clinica {
+export class Clinic {
 
   id: number;
   cnpj: string;

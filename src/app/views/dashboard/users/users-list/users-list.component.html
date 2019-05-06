@@ -1,0 +1,111 @@
+<div class="p-3">
+  <div class="container p-0">
+
+    <div>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb-style1 p-0 p-md-2">
+          <li class="breadcrumb-item"><a [routerLink]="['/']">Dashboard</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Usuários</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="card p-0">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-10 col-md-6">
+            <div class="form-group m-0">
+              <label for="email" class="d-none"> <strong>Email</strong></label>
+              <input pInputText [(ngModel)]="email" type="text" class="form-control" placeholder="Pesquisar...">
+              <small id="email-help" class="d-none form-text text-muted">
+                We'll never share your email with anyone else.
+              </small>
+            </div>
+          </div>
+          <div class="col-2 offset-md-3 col-md-3">
+            <button class="btn btn-sm btn-info h-100 float-right" [routerLink]="['/users/new']">
+              <span class="d-block d-md-none">
+                <i class="fas fa-plus"></i>
+              </span>
+              <span class="d-none d-md-block d-lg-none">
+                <i class="fas fa-plus"></i>&nbsp;Novo
+              </span>
+              <span class="d-none d-lg-block">
+                <i class="fas fa-plus"></i>&nbsp;Novo Usuário
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body p-0">
+        <table class="table table-borderless table-hover border-top">
+          <thead>
+            <tr>
+              <th>
+                <div class="d-none d-md-flex justify-content-between align-items-center">
+                  <span>Nome</span>
+                  <i class="float-right fas fa-sort text-muted"></i>
+                </div>
+              </th>
+              <th>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span>Email</span>
+                  <i class="float-right fas fa-sort text-muted"></i>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="border-bottom">
+            <tr class="border-top" *ngFor="let user of users">
+              <td class="d-none d-md-block"><a href="#">{{ user.fullname}}</a></td>
+              <td>
+                <span class="d-block d-md-none">
+                  <a href="#">{{ user.fullname}}</a><br>
+                  <small class="d-block d-md-none text-muted">{{ user.email}}</small>
+                </span>
+                <span class="d-none d-md-block">
+                  <a href="#">{{ user.email}}</a>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="container-fluid">
+          <div class="row m-0 align-items-center justify-content-end">
+            <div class="input-group d-inline w-auto ">
+              <select class="custom-select w-auto" style="font-size: 14px;">
+                <option value="5">5</option>
+                <option value="10" selected>10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+              </select>
+            </div>
+            <span class="m-0 ml-2 text-muted" style="font-size: 14px;">{{ tableItensLabel }}</span>
+            <nav class="ml-2 float-right" aria-label="Page navigation example">
+              <ul class="pagination m-0">
+                <li class="page-item">
+                  <a class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+                </li>
+                <li class="page-item"><a class="page-link"><span aria-hidden="true">&lsaquo;</span></a></li>
+                <li class="page-item"><a class="page-link"><span aria-hidden="true">&rsaquo;</span></a></li>
+                <li class="page-item">
+                  <a class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <!-- <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a> -->
+      </div>
+    </div>
+    <!-- <nav aria-label="breadcrumb">
+  <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Sales Monitoring</li>
+  </ol>
+</nav> -->
+  </div>
+</div>

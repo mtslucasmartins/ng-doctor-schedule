@@ -12,55 +12,70 @@
         </div>
         <div class="container-fluid">
           <div class="row ui-fluid">
-            <form [formGroup]="signUpForm"  class="col">
-              <div class="form-group">
-                <label for="organization-name" class="d-none"><strong>Clínica</strong></label>
-                <input pInputText id="organization-name" type="text" class="form-control"
-                  aria-describedby="organization-name-help" placeholder="Nome da Clínica">
-                <small id="organization-name-help" class="d-none form-text text-muted">
-                  We'll never share your email with anyone else.
-                </small>
+            <form [formGroup]="formSignUp" class="col">
+              <div class="form-group" formGroupName="clinic">
+                <div class="form-group">
+                  <label for="organization-name" class="d-none"><strong>Clínica</strong></label>
+                  <div class="input-group">
+                    <input pInputText id="organization-name" formControlName="description" class="form-control"
+                      aria-describedby="organization-name-help" placeholder="Nome da Clínica" type="text"
+                      autocomplete="off">
+                    <div class="input-group-append"
+                      *ngIf="formSignUp.get(['clinic', 'description']).hasError('incorrect')">
+                    </div>
+                  </div>
+                  <small id="organization-name-help" class="d-none form-text text-muted">
+                    We'll never share your email with anyone else.
+                  </small>
+                </div>
+                <div class="form-group">
+                  <label for="organization-cnpj" class="d-none"><strong>CPF/CNPJ</strong></label>
+                  <div class="ui-inputgroup">
+                    <input pInputText id="organization-cnpj" formControlName="cnpj" class="form-control"
+                      aria-describedby="organization-cnpj-help" placeholder="CPF/CNPJ da Clínica" type="text"
+                      autocomplete="off">
+                    <button pButton type="button" *ngIf="formSignUp.get(['clinic', 'cnpj']).hasError('incorrect')"
+                      [pTooltip]="formSignUp.get(['clinic', 'cnpj']).errors.incorrect" tooltipPosition="top"
+                      icon="fas fa-exclamation-circle" class="ui-button-danger">
+                    </button>
+                  </div>
+                  <small id="organization-cnpj-help" class="d-none form-text text-danger">
+                    We'll never share your email with anyone else.
+                  </small>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="organization-cnpj" class="d-none"><strong>CPF/CNPJ</strong></label>
-                <input pInputText id="organization-cnpj" type="text" class="form-control"
-                  aria-describedby="organization-cnpj-help" placeholder="CPF/CNPJ da Clínica">
-                <small id="organization-cnpj-help" class="d-none form-text text-danger">
-                  We'll never share your email with anyone else.
-                </small>
-              </div>
-              
               <hr>
 
               <div class="form-group">
                 <label for="full-name" class="d-none"><strong>Nome Completo</strong></label>
-                <input pInputText formControlName="fullname" id="full-name" type="text" class="form-control" aria-describedby="full-name-help"
-                  placeholder="Nome Completo">
+                <input pInputText formControlName="fullname" id="full-name" type="text" class="form-control"
+                  aria-describedby="full-name-help" placeholder="Nome Completo">
                 <small id="full-name-help" class="d-none form-text text-muted">
                   We'll never share your email with anyone else.
                 </small>
               </div>
               <div class="form-group">
                 <label for="email" class="d-none"> <strong>Email</strong></label>
-                <input pInputText formControlName="email" id="email" type="email" class="form-control" aria-describedby="email-help"
-                  placeholder="Seu Email">
+                <input pInputText formControlName="email" id="email" type="email" class="form-control"
+                  aria-describedby="email-help" placeholder="Seu Email">
                 <small id="email-help" class="d-none form-text text-muted">
                   We'll never share your email with anyone else.
                 </small>
               </div>
               <div class="form-group">
                 <label for="password" class="d-none"><strong>Senha</strong></label>
-                <input pInputText formControlName="password" id="password" type="password" class="form-control" placeholder="Senha">
+                <input pInputText formControlName="password" id="password" type="password" class="form-control"
+                  placeholder="Senha" autocomplete="new-password">
               </div>
               <div class="form-group">
                 <label for="password-confirm" class="d-none"><strong>Confirmar Senha</strong></label>
                 <input pInputText id="password-confirm" type="password" class="form-control"
-                  aria-describedby="password-confirm-help" placeholder="Senha">
+                  aria-describedby="password-confirm-help" placeholder="Senha" autocomplete="new-password">
                 <small id="password-confirm-help-help" class="d-none form-text text-muted">
                   We'll never share your email with anyone else.
                 </small>
               </div>
-              <button pButton type="button" label="Inscrever-se"></button>
+              <button pButton type="button" label="Inscrever-se" (click)="signup()"></button>
               <hr>
               <div class="form-group text-center">
                 <small class="form-text text-muted">

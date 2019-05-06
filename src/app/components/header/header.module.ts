@@ -5,17 +5,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { ButtonModule } from 'primeng/button';
-import { InputTextModule } from 'primeng/inputtext';
-import { TooltipModule } from 'primeng/tooltip';
-
-import { SignUpComponent } from './sign-up.component';
-import { RouterModule } from '@angular/router';
+import { HeaderComponent } from './header.component';
+import { AvatarModule } from '../avatar/avatar.module';
+import { BrandModule } from '../brand/brand.module';
 
 
 @NgModule({
   declarations: [
-    SignUpComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -23,15 +20,13 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule,
 
-    ButtonModule,
-    InputTextModule,
-    TooltipModule
+    AvatarModule,
+    BrandModule
   ],
   exports: [
-    SignUpComponent
+    HeaderComponent
   ],
   providers: []
 })
-export class SignUpModule { }
+export class HeaderModule { }

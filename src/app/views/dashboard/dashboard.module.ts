@@ -5,17 +5,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { ButtonModule } from 'primeng/button';
-import { InputTextModule } from 'primeng/inputtext';
-import { TooltipModule } from 'primeng/tooltip';
-
-import { SignUpComponent } from './sign-up.component';
 import { RouterModule } from '@angular/router';
+import { DashboardComponent } from './dashboard.component';
+import { HeaderModule } from 'src/app/components/header/header.module';
 
 
 @NgModule({
   declarations: [
-    SignUpComponent
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -25,13 +22,11 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     RouterModule,
 
-    ButtonModule,
-    InputTextModule,
-    TooltipModule
+    HeaderModule
   ],
   exports: [
-    SignUpComponent
+    DashboardComponent
   ],
   providers: []
 })
-export class SignUpModule { }
+export class DashboardModule { }

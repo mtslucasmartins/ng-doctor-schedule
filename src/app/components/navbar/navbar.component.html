@@ -1,0 +1,255 @@
+<!--
+<nav class="navbar navbar-expand-md navbar-light bg-light border-bottom">
+  <app-brand class="col-9 col-sm-9 col-md-3 col-lg-2 text-center" src="https://ottimizza.com.br/images/ottimizza.png">
+  </app-brand>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse show" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Features</a>
+      <a class="nav-item nav-link" href="#">Pricing</a>
+      <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    </div>
+  </div>
+  <form class="form-inline mx-2 my-2 my-lg-0">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Buscar..." aria-label="Recipient's username"
+        aria-describedby="button-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </div>
+  </form>
+  <div class="btn-group d-none mx-2 d-md-block">
+    <a id="dropdownMenuButton" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <app-avatar [src]="user.avatar" width="46" height="46"></app-avatar>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+      <h6 class="dropdown-header">
+        Lucas Martins<br>
+        <small>De Paula Contadores e Associados</small>
+      </h6>
+      <a class="dropdown-item" href="#">
+        <span>
+          View Profile
+        </span>
+      </a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">
+        <span>
+          Sign Out
+        </span>
+      </a>
+    </div>
+  </div>
+</nav>
+-->
+<div class="row align-items-center">
+  <!-- nav and search button -->
+  <div class="col-md-6 col-sm-8 clearfix">
+    <div class="nav-btn float-left">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="search-box float-left">
+      <form action="#">
+        <input type="text" name="search" placeholder="Search..." required="">
+        <i class="ti-search"></i>
+      </form>
+    </div>
+  </div>
+  <!-- profile info & task notification -->
+  <div class="col-md-6 col-sm-4 clearfix">
+    <ul class="notification-area float-right">
+      <li id="full-view"><i class="ti-fullscreen"></i></li>
+      <li id="full-view-exit"><i class="ti-zoom-out"></i></li>
+      <li class="dropdown">
+        <i class="ti-bell dropdown-toggle" data-toggle="dropdown">
+          <span>2</span>
+        </i>
+        <div class="dropdown-menu bell-notify-box notify-box">
+          <span class="notify-title">You have 3 new notifications <a href="#">view all</a></span>
+          <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 435px;">
+            <div class="nofity-list" style="overflow: hidden; width: auto; height: 435px;">
+              <a href="#" class="notify-item">
+                <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
+                <div class="notify-text">
+                  <p>You have Changed Your Password</p>
+                  <span>Just Now</span>
+                </div>
+              </a>
+              <a href="#" class="notify-item">
+                <div class="notify-thumb"><i class="ti-comments-smiley btn-info"></i></div>
+                <div class="notify-text">
+                  <p>New Commetns On Post</p>
+                  <span>30 Seconds ago</span>
+                </div>
+              </a>
+              <a href="#" class="notify-item">
+                <div class="notify-thumb"><i class="ti-key btn-primary"></i></div>
+                <div class="notify-text">
+                  <p>Some special like you</p>
+                  <span>Just Now</span>
+                </div>
+              </a>
+              <a href="#" class="notify-item">
+                <div class="notify-thumb"><i class="ti-comments-smiley btn-info"></i></div>
+                <div class="notify-text">
+                  <p>New Commetns On Post</p>
+                  <span>30 Seconds ago</span>
+                </div>
+              </a>
+              <a href="#" class="notify-item">
+                <div class="notify-thumb"><i class="ti-key btn-primary"></i></div>
+                <div class="notify-text">
+                  <p>Some special like you</p>
+                  <span>Just Now</span>
+                </div>
+              </a>
+              <a href="#" class="notify-item">
+                <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
+                <div class="notify-text">
+                  <p>You have Changed Your Password</p>
+                  <span>Just Now</span>
+                </div>
+              </a>
+              <a href="#" class="notify-item">
+                <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
+                <div class="notify-text">
+                  <p>You have Changed Your Password</p>
+                  <span>Just Now</span>
+                </div>
+              </a>
+            </div>
+            <div class="slimScrollBar"
+              style="background: rgb(0, 0, 0); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px; height: 295.203px;">
+            </div>
+            <div class="slimScrollRail"
+              style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;">
+            </div>
+          </div>
+        </div>
+      </li>
+
+
+      <li class="dropdown">
+        <i class="far fa-envelope dropdown-toggle" data-toggle="dropdown"><span>3</span></i>
+        <div class="dropdown-menu notify-box nt-enveloper-box">
+          <span class="notify-title">You have 3 new notifications <a href="#">view all</a></span>
+          <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 435px;">
+            <div class="nofity-list" style="overflow: hidden; width: auto; height: 435px;">
+              <a href="#" class="notify-item">
+                <div class="notify-thumb">
+                  <img src="assets/images/author/author-img1.jpg" alt="image">
+                </div>
+                <div class="notify-text">
+                  <p>Aglae Mayer</p>
+                  <span class="msg">Hey I am waiting for you...</span>
+                  <span>3:15 PM</span>
+                </div>
+              </a>
+              <a href="#" class="notify-item">
+                <div class="notify-thumb">
+                  <img src="assets/images/author/author-img2.jpg" alt="image">
+                </div>
+                <div class="notify-text">
+                  <p>Aglae Mayer</p>
+                  <span class="msg">When you can connect with me...</span>
+                  <span>3:15 PM</span>
+                </div>
+              </a>
+              <a href="#" class="notify-item">
+                <div class="notify-thumb">
+                  <img src="assets/images/author/author-img3.jpg" alt="image">
+                </div>
+                <div class="notify-text">
+                  <p>Aglae Mayer</p>
+                  <span class="msg">I missed you so much...</span>
+                  <span>3:15 PM</span>
+                </div>
+              </a>
+              <a href="#" class="notify-item">
+                <div class="notify-thumb">
+                  <img src="assets/images/author/author-img4.jpg" alt="image">
+                </div>
+                <div class="notify-text">
+                  <p>Aglae Mayer</p>
+                  <span class="msg">Your product is completely Ready...</span>
+                  <span>3:15 PM</span>
+                </div>
+              </a>
+              <a href="#" class="notify-item">
+                <div class="notify-thumb">
+                  <img src="assets/images/author/author-img2.jpg" alt="image">
+                </div>
+                <div class="notify-text">
+                  <p>Aglae Mayer</p>
+                  <span class="msg">Hey I am waiting for you...</span>
+                  <span>3:15 PM</span>
+                </div>
+              </a>
+              <a href="#" class="notify-item">
+                <div class="notify-thumb">
+                  <img src="assets/images/author/author-img1.jpg" alt="image">
+                </div>
+                <div class="notify-text">
+                  <p>Aglae Mayer</p>
+                  <span class="msg">Hey I am waiting for you...</span>
+                  <span>3:15 PM</span>
+                </div>
+              </a>
+              <a href="#" class="notify-item">
+                <div class="notify-thumb">
+                  <img src="assets/images/author/author-img3.jpg" alt="image">
+                </div>
+                <div class="notify-text">
+                  <p>Aglae Mayer</p>
+                  <span class="msg">Hey I am waiting for you...</span>
+                  <span>3:15 PM</span>
+                </div>
+              </a>
+            </div>
+            <div class="slimScrollBar"
+              style="background: rgb(0, 0, 0); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px; height: 238.019px;">
+            </div>
+            <div class="slimScrollRail"
+              style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;">
+            </div>
+          </div>
+        </div>
+      </li>
+
+
+      <li class="settings-btn">
+        <div class="btn-group d-none mx-2 d-md-block">
+          <a id="dropdownMenuButton" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <app-avatar [src]="user.avatar" width="46" height="46"></app-avatar>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+            <h6 class="dropdown-header">
+              Lucas Martins<br>
+              <small>De Paula Contadores e Associados</small>
+            </h6>
+            <a class="dropdown-item" href="#">
+              <span>
+                View Profile
+              </span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <span>
+                Sign Out
+              </span>
+            </a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
