@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  baseUrl: 'https://py-doctor-scheduler.herokuapp.com'
 };
