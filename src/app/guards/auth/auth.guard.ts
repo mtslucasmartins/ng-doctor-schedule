@@ -15,12 +15,20 @@ export class AuthGuard implements CanActivate {
     const that = this;
     return new Promise<boolean>((resolve, reject) => {
       if (!that.auth.isAuthenticated()) {
-        that.auth.refresh().subscribe((response: any) => {
-          if (response.access_token) {
-            localStorage.setItem('access_token', response.access_token);
+        that.auth.refresh().subscribe(
+          (response: any) => {
+            if (response.access_token) {
+              localStorage.setItem('access_token', response.access_token);
+            }
+            return that.auth.isAuthenticated();
+          },
+          (error: any) => {
+            console.log(error);
+            if (error.status === 401) {
+              that.redirectToLogin();
+            }
           }
-          return that.auth.isAuthenticated();
-        });
+        );
       }
       resolve(true);
     });
@@ -44,5 +52,7 @@ export class AuthGuard implements CanActivate {
     // }
     // of(true);
   }
+
+  public redirectToLogin = () => this.router.navigate(['/sign-in']);
 
 }

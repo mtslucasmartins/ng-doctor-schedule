@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     element.classList.toggle('collapsed');
     elementMobile.classList.toggle('collapsed');
     this.sidebarIsOpen = element.classList.contains(clazz);
+    this.sidebarIsOpen = element.classList.contains(clazz);
   }
 
   ngOnInit() {

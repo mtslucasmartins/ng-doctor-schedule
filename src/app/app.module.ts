@@ -18,6 +18,7 @@ import { NavbarModule } from './components/navbar/navbar.module';
 import { DashboardModule } from './views/dashboard/dashboard.module';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { UserModule } from './views/dashboard/users/users.module';
+import { ExamModule } from './views/dashboard/exams/exams.module';
 
 export function jwtTokenGetter() {
   return localStorage.getItem('access_token');
@@ -42,6 +43,7 @@ export function jwtTokenGetter() {
 
     DashboardModule,
 
+    ExamModule,
     SignInModule,
     SignUpModule,
     WelcomeModule,

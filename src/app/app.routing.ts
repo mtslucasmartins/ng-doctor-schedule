@@ -8,12 +8,19 @@ import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { AuthGuard } from './guards/auth/auth.guard';
 import { UserListComponent } from './views/dashboard/users/users-list/users-list.component';
 import { UserCreateComponent } from './views/dashboard/users/users-create/users-create.component';
+import { ExamCreateComponent } from './views/dashboard/exams/exams-create/exams-create.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, canActivate: [AuthGuard], pathMatch: 'full' },
   {
     path: 'teste', component: DashboardComponent, canActivate: [AuthGuard], children: [
       { path: '', component: SignInComponent, pathMatch: 'full' }
+    ]
+  },
+  {
+    path: 'exams', component: DashboardComponent, canActivate: [AuthGuard], children: [
+      // { path: '', component: UserListComponent, pathMatch: 'full' },
+      { path: 'new', component: ExamCreateComponent, pathMatch: 'full' }
     ]
   },
   {

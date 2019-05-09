@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-sign-in-component',
@@ -15,7 +16,7 @@ export class SignInComponent implements OnInit {
   public email: string;
   public password: string;
 
-  constructor(private router: Router, private authService: AuthService) {
+  constructor(private router: Router, private snackBar: MatSnackBar, private authService: AuthService) {
   }
 
   public signin() {
@@ -34,10 +35,18 @@ export class SignInComponent implements OnInit {
           this.router.navigate(['/']);
         },
         (error: any) => {
+          if (error.status === 401) {
+            that.hasError = true;
+            that.openSnackBar(error.error.description);
+          }
           console.log(error);
         }
       );
     });
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, 'Close', { });
   }
 
   ngOnInit(): void {

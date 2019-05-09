@@ -15,7 +15,7 @@
           <div class="col-10 col-md-6">
             <div class="form-group m-0">
               <label for="email" class="d-none"> <strong>Email</strong></label>
-              <input pInputText [(ngModel)]="email" type="text" class="form-control" placeholder="Pesquisar...">
+              <input pInputText type="text" class="form-control" placeholder="Pesquisar...">
               <small id="email-help" class="d-none form-text text-muted">
                 We'll never share your email with anyone else.
               </small>
@@ -41,8 +41,8 @@
         <table class="table table-borderless table-hover border-top">
           <thead>
             <tr>
-              <th>
-                <div class="d-none d-md-flex justify-content-between align-items-center">
+              <th class="d-none d-md-flex">
+                <div class="justify-content-between align-items-center">
                   <span>Nome</span>
                   <i class="float-right fas fa-sort text-muted"></i>
                 </div>
