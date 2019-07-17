@@ -15,6 +15,7 @@ import { ExamCreateComponent } from './exams-create/exams-create.component';
 import { ExamLocationComponent } from './exam-location/exam-location.component';
 import { ExamTypeComponent } from './exam-type/exam-type.component';
 import { ExamProviderComponent } from './exam-provider/exam-provider.component';
+import { ExamDetailsComponent } from './exam-details/exam-details.component';
 // import { ExamListComponent } from './exams-list/exams-list.component';
 
 @NgModule({
@@ -23,6 +24,7 @@ import { ExamProviderComponent } from './exam-provider/exam-provider.component';
     // for creation
     ExamLocationComponent,
     ExamProviderComponent,
+    ExamDetailsComponent,
     ExamTypeComponent
   ],
   imports: [
@@ -41,6 +43,7 @@ import { ExamProviderComponent } from './exam-provider/exam-provider.component';
     ExamCreateComponent,
     ExamLocationComponent,
     ExamProviderComponent,
+    ExamDetailsComponent,
     ExamTypeComponent
   ],
   providers: []

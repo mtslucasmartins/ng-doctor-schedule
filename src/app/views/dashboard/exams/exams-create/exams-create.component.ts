@@ -20,8 +20,6 @@ export class ExamCreateComponent implements OnInit, OnDestroy {
   public currentStep = 0;
 
   public user: User;
-  public image: string | ArrayBuffer;
-  public defaultImage = 'assets/images/camera-placeholder.jpg';
 
   public location: any;
   public examType: any;
@@ -30,28 +28,20 @@ export class ExamCreateComponent implements OnInit, OnDestroy {
 
   constructor(private userService: UserService) { }
 
-  public readURL(event: any): void {
-    const that = this;
-    if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-
-      const reader = new FileReader();
-      reader.onload = e => this.image = reader.result || that.defaultImage;
-
-      reader.readAsDataURL(file);
-    }
-  }
 
   public onLocationSelected(location: any) {
     this.location = location;
+    localStorage.setItem('location', JSON.stringify(location));
     this.nextStep();
   }
   public onExamTypeSelected(examType: any) {
     this.examType = examType;
+    localStorage.setItem('examType', JSON.stringify(examType));
     this.nextStep();
   }
   public onProviderSelected(provider: any) {
     this.provider = provider;
+    localStorage.setItem('provider', JSON.stringify(provider));
     this.nextStep();
   }
 
@@ -59,14 +49,18 @@ export class ExamCreateComponent implements OnInit, OnDestroy {
   public previousStep() {
     this.currentStep = this.currentStep - 1;
   }
+
   public nextStep() {
     this.currentStep = this.currentStep + 1;
-
-    console.log(this.currentStep);
   }
 
   ngOnInit() {
     this.user = new User({ id: 1, email: 'sit.amet@dolorelitpellentesque.co.uk', fullname: 'Karina O. Maddox' });
+
+    this.location = JSON.parse(localStorage.getItem('location') || '{}');
+    this.examType = JSON.parse(localStorage.getItem('examType') || '{}');
+    this.provider = JSON.parse(localStorage.getItem('provider') || '{}');
+
   }
 
   ngOnDestroy() { }

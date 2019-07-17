@@ -12,9 +12,12 @@
     <div class="card p-0">
       <div class="card-body">
         <div class="row">
-          <div class="col-2 col-md-3">
-            <button *ngIf="currentStep > 0" class="btn btn-sm btn-info h-100 float-left" (click)="previousStep()"
-              style="min-height: 35px;">
+          <div *ngIf="currentStep == 0" class="col-2 col-md-3">
+            <button class="btn btn-sm btn-info h-100 float-left invisible" (click)="previousStep()" style="min-height: 35px;">
+            </button>
+          </div>
+          <div *ngIf="currentStep > 0" class="col-2 col-md-3">
+            <button class="btn btn-sm btn-info h-100 float-left" (click)="previousStep()" style="min-height: 35px;">
               <span class="d-block d-md-none">
                 <i class="fas fa-arrow-left"></i>
               </span>
@@ -26,7 +29,7 @@
               </span>
             </button>
           </div>
-          <div class="offset-8 col-2 offset-md-6 col-md-3">
+          <div *ngIf="currentStep == 3" class="offset-8 col-2 offset-md-6 col-md-3">
             <button class="btn btn-sm btn-info h-100 float-right" style="min-height: 35px;">
               <span class="d-block d-md-none">
                 <i class="fas fa-save"></i>
@@ -53,6 +56,10 @@
       <div *ngIf="currentStep == 2" class="card-body">
         <app-exam-provider-create-component [provider]="provider" (providerSelected)="onProviderSelected($event)">
         </app-exam-provider-create-component>
+      </div>
+      <div *ngIf="currentStep == 3" class="card-body">
+        <app-exam-details-create-component>
+        </app-exam-details-create-component>
       </div>
       <div class="card-body">
 
