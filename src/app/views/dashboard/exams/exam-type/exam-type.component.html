@@ -1,0 +1,30 @@
+<div class="row ui-fluid">
+  <div class="col">
+    <div class="form-group">
+      <label class="text-muted text-uppercase"><strong>Tipo de Atendimento</strong></label>
+    </div>
+    <div class="form-group">
+      <input pInputText id="local" type="text" class="form-control" placeholder="Informe o Tipo de Atendimento..."
+        [(ngModel)]="description" (ngModelChange)="findExamTypes(description)" />
+      <small class="form-text text-muted"> Exemplo: Exame, Consulta etc... </small>
+    </div>
+
+    <div *ngIf="!noResults" class="container text-center pt-3">
+      <div *ngFor="let type of filteredTypes" class="row mb-3">
+        <div class="offset-md-2 col-12 col-md-8 ">
+          <button class="btn btn-info w-100 py-3" (click)="select(type)"> {{ type.description }} </button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="noResults" class="container text-center pt-3">
+      <div class="row mb-3">
+        <div class="offset-md-2 col-12 col-md-8 ">
+          <p class="text-muted">Nenhum resultado encontrado!</p>
+          <button class="btn btn-info w-100 py-3" (click)="createExamType()">
+            Cadastrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -12,12 +12,18 @@ import { ButtonModule } from 'primeng/button';
 
 // Exams Components
 import { ExamCreateComponent } from './exams-create/exams-create.component';
+import { ExamLocationComponent } from './exam-location/exam-location.component';
+import { ExamTypeComponent } from './exam-type/exam-type.component';
+import { ExamProviderComponent } from './exam-provider/exam-provider.component';
 // import { ExamListComponent } from './exams-list/exams-list.component';
 
 @NgModule({
   declarations: [
-    // ExamListComponent,
-    ExamCreateComponent
+    ExamCreateComponent,
+    // for creation
+    ExamLocationComponent,
+    ExamProviderComponent,
+    ExamTypeComponent
   ],
   imports: [
     BrowserModule,
@@ -32,8 +38,10 @@ import { ExamCreateComponent } from './exams-create/exams-create.component';
     InputTextModule,
   ],
   exports: [
-    // ExamListComponent,
-    ExamCreateComponent
+    ExamCreateComponent,
+    ExamLocationComponent,
+    ExamProviderComponent,
+    ExamTypeComponent
   ],
   providers: []
 })

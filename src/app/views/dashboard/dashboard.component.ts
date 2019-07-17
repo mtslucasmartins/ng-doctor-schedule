@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-component',
@@ -7,10 +8,30 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 })
 export class DashboardComponent implements OnInit, OnDestroy {
 
-  constructor() {}
+  public routeId: string;
 
-  ngOnInit() {}
+  public sub;
 
-  ngOnDestroy() {}
+  public sidebarItems = {
+    selected: ''
+  };
+
+  constructor(private route: ActivatedRoute) {
+
+  }
+
+  ngOnInit() {
+    this.sub = this.route.firstChild
+      .data
+      .subscribe(v => {
+        console.log(v);
+
+        this.routeId = v.routeId;
+      });
+  }
+
+  ngOnDestroy() {
+    // this.sub.unsubscribe();
+  }
 
 }

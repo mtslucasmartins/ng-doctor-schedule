@@ -86,7 +86,7 @@ bg-dark {
 .breadcrumb-style1 .breadcrumb-item,
 .breadcrumb-style2 .breadcrumb-item,
 .breadcrumb-style3 .breadcrumb-item {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -105,7 +105,7 @@ bg-dark {
   tbody {
     tr {
       td {
-        font-size: 14px;
+        // font-size: 14px;
         font-weight: 400;
         letter-spacing: 0.5px;
       }
@@ -131,6 +131,7 @@ $bg-primary-darker: #138496;
 //
 .ui-inputtext {
   border-color: #ccc !important;
+  font-size: initial;
 }
 
 .w-0 {

@@ -6,29 +6,32 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class LocationsService {
 
   private baseURL = environment.baseUrl;
 
   constructor(private http: HttpClient) { }
 
-  public findUsers(args: string[]) {
+  public findLocations(description: string, args: string[]) {
     const query = `
       query {
-        users {
-          ${args.join()}
-        }
+        locations(lDescription: "${description}") { ${args.join()} }
       }
     `;
     return this.http.post(`${this.baseURL}/graphql`, { query }, this.httpHeaders());
   }
 
-  public getAllUsers(pageIndex: number = 0, pageSize: number = 10): Observable<any> {
-    return this.http.get(`${this.baseURL}/users?page_index=${pageIndex}&page_size=${pageSize}`, this.httpHeaders());
-  }
-
-  public getUserById(id: number): Observable<any> {
-    return this.http.get(`${this.baseURL}/users/${id}`, this.httpHeaders());
+  public createLocation(location: any, args: string[] = ['id', 'description']) {
+    const query = `
+      mutation {
+        createLocation(description: "${location.description}") {
+          location {
+            ${args.join()}
+          }
+        }
+      }
+    `;
+    return this.http.post(`${this.baseURL}/graphql`, { query }, this.httpHeaders());
   }
 
   public httpHeaders() {

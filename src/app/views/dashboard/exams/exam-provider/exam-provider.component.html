@@ -1,0 +1,30 @@
+<div class="row ui-fluid">
+  <div class="col">
+    <div class="form-group">
+      <label class="text-muted text-uppercase"><strong>Operadora</strong></label>
+    </div>
+    <div class="form-group">
+      <input pInputText id="local" type="text" class="form-control" placeholder="Informe o nome da Operadora..."
+        [(ngModel)]="description" (ngModelChange)="findProviders(description)" />
+      <small class="form-text text-muted"> Exemplo: Unimed, Bradesco etc... </small>
+    </div>
+
+    <div *ngIf="!noResults" class="container text-center pt-3">
+      <div *ngFor="let provider of filteredProviders" class="row mb-3">
+        <div class="offset-md-2 col-12 col-md-8 ">
+          <button class="btn btn-info w-100 py-3" (click)="select(provider)"> {{ provider.description }} </button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="noResults" class="container text-center pt-3">
+      <div class="row mb-3">
+        <div class="offset-md-2 col-12 col-md-8 ">
+          <p class="text-muted">Nenhum resultado encontrado!</p>
+          <button (click)="createProvider()" class="btn btn-info w-100 py-3">
+            Cadastrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

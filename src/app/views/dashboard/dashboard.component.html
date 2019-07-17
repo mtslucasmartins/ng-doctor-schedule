@@ -20,7 +20,7 @@
                         <p>Dashboard</p>
                       </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" [class.active]="routeId == 'CREATE_EXAM'">
                       <a class="nav-link" [routerLink]="['/exams/new']">
                         <i class="fas fa-plus-square" data-fa-transform="grow-6"></i>
                         <p>Novo Atendimento</p>
@@ -33,7 +33,7 @@
                         <p>Atendimentos</p>
                       </a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item" [class.active]="routeId == 'LIST_USERS'">
                       <a class="nav-link" [routerLink]="['/users']">
                         <i class="fas fa-user-md"></i>
                         <p>Usuarios</p>

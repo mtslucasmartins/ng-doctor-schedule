@@ -19,9 +19,12 @@ export class UserListComponent implements OnInit, OnDestroy {
   constructor(private userService: UserService) { }
 
   public getAllUsers() {
-    this.userService.getAllUsers().subscribe((response: any) => {
-      if (response.status === 'success') {
-        this.users = response.records;
+    this.userService.findUsers(['id', 'fullname', 'email']).subscribe((response: any) => {
+      if (response.data && response.data.users) {
+        // const users = 
+        // } 
+        // if (response.status === 'success') {
+        this.users = response.data.users;
 
         let start = (this.pageIndex) * this.pageSize + 1;
         let end = +response.length;
