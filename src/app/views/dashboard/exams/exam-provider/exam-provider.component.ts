@@ -1,6 +1,4 @@
-import { Component, OnInit, OnDestroy, Output, EventEmitter, Input } from '@angular/core';
-import { User } from 'src/app/models/User';
-import { UserService } from 'src/app/services/user.services';
+import { Component, OnInit, OnDestroy, Output, EventEmitter, Input, SimpleChanges, OnChanges } from '@angular/core';
 import { ProviderService } from 'src/app/services/provider.service';
 
 export interface ProviderInt {
@@ -76,13 +74,14 @@ export class ExamProviderComponent implements OnInit, OnDestroy {
   public ngOnInit() {
     // Received a Location as Parameter.
     if (typeof this.provider !== 'undefined' && this.provider !== null) {
-      this.description = this.provider.description;
       this.findProviders(this.description);
     }
-
+    
     // this.getRecentUsedLocations();
   }
-
-  ngOnDestroy() { }
+  
+  ngOnDestroy() { 
+    this.description = '';
+  }
 
 }

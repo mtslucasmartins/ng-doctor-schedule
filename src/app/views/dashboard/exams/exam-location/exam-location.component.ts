@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter, Input, SimpleChanges, OnChanges } from '@angular/core';
 import { User } from 'src/app/models/User';
 import { UserService } from 'src/app/services/user.services';
 import { LocationsService } from 'src/app/services/locations.service';
@@ -20,7 +20,7 @@ export class ExamLocationComponent implements OnInit, OnDestroy {
   @Input() location: LocationInt;
 
   //
-  public description: string = this.location ? this.location.description || '' : '';
+  public description: string = '';
 
   //
   public recentlyUsedLocations: LocationInt[];
@@ -82,13 +82,14 @@ export class ExamLocationComponent implements OnInit, OnDestroy {
   public ngOnInit() {
     // Received a Location as Parameter.
     if (typeof this.location !== 'undefined' && this.location !== null) {
-      this.description = this.location.description;
       this.findLocations(this.description);
     }
 
     this.getRecentUsedLocations();
   }
 
-  ngOnDestroy() { }
+  ngOnDestroy() {
+    this.description = '';
+  }
 
 }

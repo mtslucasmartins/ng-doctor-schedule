@@ -5,6 +5,7 @@ import { Clinic } from 'src/app/models/Clinic';
 import { SignUpService } from 'src/app/services/signup/signup.service';
 
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-sign-up-component',
@@ -15,20 +16,17 @@ export class SignUpComponent implements OnInit {
 
   public formSignUp: FormGroup;
 
-  public organizationName: string;
-  public organizationCNPJ: string;
-  public organizationCNPJWarning: string;
-
-  public fullname: string;
   public email: string;
+  public password: string;
+  public passwordConfirm: string;
+  public fullname: string;
+  public cpf: string;
 
   public firstName: string;
   public lastName: string;
 
-  public password: string;
-  public passwordConfirm: string;
 
-  constructor(private fb: FormBuilder, private router: Router, private signupService: SignUpService) {
+  constructor(private fb: FormBuilder, private snackBar: MatSnackBar, private router: Router, private signupService: SignUpService) {
   }
 
   public checkPassword(): boolean {
@@ -44,15 +42,12 @@ export class SignUpComponent implements OnInit {
           email: that.formSignUp.controls.email.value,
           fullname: that.formSignUp.controls.fullname.value,
           password: that.formSignUp.controls.password.value,
-          clinic: new Clinic({
-            cnpj: that.formSignUp.get(['clinic', 'cnpj']).value,
-            description: that.formSignUp.get(['clinic', 'description']).value
-          })
+          cpf: that.formSignUp.controls.cpf.value,
         });
         that.signupService.signup(user).subscribe(
           (response: any) => {
             if (response.status === 'success') {
-              // this.router.navigate(['/sign-in', user.email]);
+              this.router.navigate(['/sign-in']);
               // this.router.navigateByUrl('/sign-in', { state: { email: user.email } });
             }
           },
@@ -63,13 +58,7 @@ export class SignUpComponent implements OnInit {
               const body = error.error;
               const status = error.status;
               if (status === 400) {
-                if (body.field) {
-                  switch (body.field) {
-                    case 'clinic.cnpj':
-                      that.formSignUp.get(['clinic', 'cnpj']).setErrors({ incorrect: body.message });
-                      break;
-                  }
-                }
+                that.openSnackBar(error.error.error_description);
                 console.log(JSON.stringify(error.error));
               }
             }
@@ -80,14 +69,15 @@ export class SignUpComponent implements OnInit {
     });
   }
 
+  openSnackBar(message: string) {
+    this.snackBar.open(message, 'Close', {});
+  }
+
   ngOnInit() {
     this.formSignUp = this.fb.group({
-      clinic: this.fb.group({
-        cnpj: new FormControl('', Validators.required),
-        description: new FormControl('', Validators.required),
-      }),
       fullname: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
+      cpf: new FormControl('', Validators.required),
       password: new FormControl('', Validators.compose([
         Validators.required, Validators.minLength(6)
       ]))

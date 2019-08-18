@@ -7,7 +7,7 @@ export class User {
   fullname: string;
   username: string;
   password: string;
-  clinic: Clinic;
+  cpf: string;
 
   constructor(builder: any) {
     this.id = builder.id;
@@ -15,7 +15,7 @@ export class User {
     this.fullname = builder.fullname;
     this.username = builder.username;
     this.password = builder.password;
-    this.clinic = builder.clinic ? new Clinic(builder.clinic) : null;
+    this.cpf = builder.cpf;
   }
 
 }

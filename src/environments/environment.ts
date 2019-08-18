@@ -4,8 +4,8 @@
 
 export const environment = {
   production: true,
-  // baseUrl: 'https://py-doctor-scheduler.herokuapp.com'
-  baseUrl: 'http://localhost:5000'
+  baseUrl: 'https://py-doctor-scheduler.herokuapp.com'
+  // baseUrl: 'http://localhost:5000'
 };
 
 /*

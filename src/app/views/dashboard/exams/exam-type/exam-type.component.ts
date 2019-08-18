@@ -1,7 +1,4 @@
-import { Component, OnInit, OnDestroy, EventEmitter, Output, Input } from '@angular/core';
-import { User } from 'src/app/models/User';
-import { UserService } from 'src/app/services/user.services';
-import { LocationsService } from 'src/app/services/locations.service';
+import { Component, OnInit, OnDestroy, EventEmitter, Output, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ExamTypeService } from 'src/app/services/exam-type.service';
 
 export interface ExamTypeInt {
@@ -21,7 +18,7 @@ export class ExamTypeComponent implements OnInit, OnDestroy {
   @Input() examType: ExamTypeInt;
 
   //
-  public description: string;
+  public description: string = '';
 
   //
   public recentlyUsedTypes: ExamTypeInt[];
@@ -84,12 +81,13 @@ export class ExamTypeComponent implements OnInit, OnDestroy {
   // --------------------------------------------------------------------------
   public ngOnInit() {
     if (typeof this.examType !== 'undefined' && this.examType !== null) {
-      this.description = this.examType.description;
       this.findExamTypes(this.description);
     }
     this.getRecentUsedTypes();
   }
-
-  ngOnDestroy() { }
+  
+  ngOnDestroy() { 
+    this.description = '';
+  }
 
 }

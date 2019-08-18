@@ -13,39 +13,14 @@
         <div class="container-fluid">
           <div class="row ui-fluid">
             <form [formGroup]="formSignUp" class="col">
-              <div class="form-group" formGroupName="clinic">
-                <div class="form-group">
-                  <label for="organization-name" class="d-none"><strong>Clínica</strong></label>
-                  <div class="input-group">
-                    <input pInputText id="organization-name" formControlName="description" class="form-control"
-                      aria-describedby="organization-name-help" placeholder="Nome da Clínica" type="text"
-                      autocomplete="off">
-                    <div class="input-group-append"
-                      *ngIf="formSignUp.get(['clinic', 'description']).hasError('incorrect')">
-                    </div>
-                  </div>
-                  <small id="organization-name-help" class="d-none form-text text-muted">
-                    We'll never share your email with anyone else.
-                  </small>
-                </div>
-                <div class="form-group">
-                  <label for="organization-cnpj" class="d-none"><strong>CPF/CNPJ</strong></label>
-                  <div class="ui-inputgroup">
-                    <input pInputText id="organization-cnpj" formControlName="cnpj" class="form-control"
-                      aria-describedby="organization-cnpj-help" placeholder="CPF/CNPJ da Clínica" type="text"
-                      autocomplete="off">
-                    <button pButton type="button" *ngIf="formSignUp.get(['clinic', 'cnpj']).hasError('incorrect')"
-                      [pTooltip]="formSignUp.get(['clinic', 'cnpj']).errors.incorrect" tooltipPosition="top"
-                      icon="fas fa-exclamation-circle" class="ui-button-danger">
-                    </button>
-                  </div>
-                  <small id="organization-cnpj-help" class="d-none form-text text-danger">
-                    We'll never share your email with anyone else.
-                  </small>
-                </div>
+              <div class="form-group">
+                <label for="cpf" class="d-none"><strong>CPF</strong></label>
+                <input pInputText formControlName="cpf" id="cpf" type="text" class="form-control"
+                  aria-describedby="cpf-help" placeholder="CPF">
+                <small id="cpf-help" class="d-none form-text text-muted">
+                  We'll never share your email with anyone else.
+                </small>
               </div>
-              <hr>
-
               <div class="form-group">
                 <label for="full-name" class="d-none"><strong>Nome Completo</strong></label>
                 <input pInputText formControlName="fullname" id="full-name" type="text" class="form-control"

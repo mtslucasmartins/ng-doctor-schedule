@@ -13,7 +13,7 @@ export class SignUpService {
   constructor(private http: HttpClient) { }
 
   public signup(user: any): Observable<any> {
-    return this.http.post(`${this.baseURL}/signup`, user, this.headers());
+    return this.http.post(`${this.baseURL}/register`, user, this.headers());
   }
 
   private headers() {

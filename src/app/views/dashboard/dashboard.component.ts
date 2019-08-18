@@ -21,13 +21,14 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.sub = this.route.firstChild
-      .data
-      .subscribe(v => {
-        console.log(v);
+    if (this.route.firstChild.data)
+      this.sub = this.route.firstChild
+        .data
+        .subscribe(v => {
+          console.log(v);
 
-        this.routeId = v.routeId;
-      });
+          this.routeId = v.routeId;
+        });
   }
 
   ngOnDestroy() {
