@@ -12,11 +12,23 @@
     <div class="card p-0">
       <div class="card-body">
         <div class="row">
-          <div *ngIf="currentStep == 0" class="col-2 col-md-3">
-            <button class="btn btn-sm btn-info h-100 float-left invisible" (click)="previousStep()" style="min-height: 35px;">
+          <div *ngIf="currentStep == 0" class="col-2 col-md-3 d-none">
+            <button class="btn btn-sm btn-info h-100 float-left invisible" (click)="previousStep()"
+              style="min-height: 35px;">
             </button>
           </div>
-          <div *ngIf="currentStep > 0" class="col-2 col-md-3">
+
+          <div class="col-6 p-2 item-selectable" *ngFor="let item of items; let i = index">
+            <div class="content-of-item py-2 h-100" [class.item-selected]="currentStep === i"
+              (click)="disabledHealthPlan(i)">
+              <div class="f-2em" [ngClass]="item.icon" *ngIf="item.icon"></div>
+              <div class="wrap-text f-14">
+                {{item.label}}
+              </div>
+            </div>
+          </div>
+          <!-- <div *ngIf="currentStep > 0" class="col-2 col-md-3"> -->
+          <!--             
             <button class="btn btn-sm btn-info h-100 float-left" (click)="previousStep()" style="min-height: 35px;">
               <span class="d-block d-md-none">
                 <i class="fas fa-arrow-left"></i>
@@ -27,9 +39,9 @@
               <span class="d-none d-lg-block">
                 <i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Voltar
               </span>
-            </button>
-          </div>
-          <div *ngIf="currentStep == 3" class="offset-8 col-2 offset-md-6 col-md-3">
+            </button> -->
+          <!-- </div> -->
+          <div *ngIf="currentStep == 3" class="offset-8 col-2 offset-md-6 col-md-3 d-none">
             <button class="btn btn-sm btn-info h-100 float-right" style="min-height: 35px;">
               <span class="d-block d-md-none">
                 <i class="fas fa-save"></i>
@@ -58,6 +70,11 @@
         </app-exam-provider-create-component>
       </div>
       <div *ngIf="currentStep == 3" class="card-body">
+        <app-exam-health-plan-component [healthPlan]="healthPlan" [provider]="provider"
+          (providerSelected)="onHealthPlanSelected($event)">
+        </app-exam-health-plan-component>
+      </div>
+      <div *ngIf="currentStep == 4" class="card-body">
         <app-exam-details-create-component>
         </app-exam-details-create-component>
       </div>
