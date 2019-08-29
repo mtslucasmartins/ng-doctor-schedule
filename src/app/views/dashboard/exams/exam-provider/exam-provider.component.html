@@ -8,7 +8,7 @@
         <input pInputText id="local" type="text" class="form-control" placeholder="Informe o nome da Operadora..."
           [(ngModel)]="description" (ngModelChange)="findProviders(description)" />
         <button pButton type="button" icon="pi pi-times" class="button-clear"
-          (click)="description = ''; findExamTypes(description);"></button>
+          (click)="description = ''; findProviders(description);"></button>
       </div>
       <small *ngIf="noResults" class="form-text text-muted"> Exemplo: Unimed, Bradesco etc... </small>
     </div>
