@@ -1,11 +1,6 @@
 <div class="row ui-fluid">
   <div class="col">
     <div class="form-group">
-      <label class="text-muted text-uppercase">
-        <strong>Ficha&nbsp;&nbsp;</strong><i class="fa fa-camera"></i>
-      </label>
-    </div>
-    <div class="form-group">
       <div class="container-fluid">
         <div class="row">
           <div class="form-group w-100 text-center">
@@ -18,6 +13,13 @@
             </label>
             <small class="form-text text-muted"> </small>
           </div>
+        </div>
+        <div class="row justify-content-end">
+          <button class="btn btn-sm btn-info h-100 float-right" style="min-height: 35px;" (click)="save()">
+            <span>
+              <i class="fas fa-save"></i>&nbsp;&nbsp;Salvar Atendimento
+            </span>
+          </button>
         </div>
       </div>
     </div>

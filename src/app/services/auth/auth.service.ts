@@ -27,11 +27,23 @@ export class AuthService {
     return this.http.post(`${this.baseURL}/auth/refresh`, {}, this.httpRefreshTokenHeaders());
   }
 
+  public checkToken(accessToken: string): Observable<any> {
+    return this.http.get(`${this.baseURL}/auth/check_token`, this.httpAccessTokenHeaders());
+  }
+
   public httpRefreshTokenHeaders() {
     return {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${localStorage.getItem('refresh_token')}`
+      })
+    };
+  }
+  private httpAccessTokenHeaders() {
+    return {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('access_token')}`
       })
     };
   }

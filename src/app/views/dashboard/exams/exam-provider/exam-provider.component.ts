@@ -8,8 +8,30 @@ export interface ProviderInt {
 
 @Component({
   selector: 'app-exam-provider-create-component',
-  templateUrl: './exam-provider.component.html'
-  // styleUrls: ['./exams-list.component.scss']
+  templateUrl: './exam-provider.component.html',
+  styles: [`
+    .button-clear{
+      background-color: white;
+      color: red;
+      border-left: none;
+      border-color: lightgray;
+    }
+    .ui-button:enabled:hover{
+      background-color: white;
+      color: red;
+      border-left: none;
+      border-color: lightgray;
+    }
+    .ui-button:enabled:active{
+      background-color: white;
+      color: red;
+      border-left: none;
+      border-color: lightgray;
+    }
+    .ui-button:enabled:focus{
+      box-shadow: none;
+    }
+  `]
 })
 export class ExamProviderComponent implements OnInit, OnDestroy {
 

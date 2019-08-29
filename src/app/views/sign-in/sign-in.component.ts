@@ -32,6 +32,9 @@ export class SignInComponent implements OnInit {
           localStorage.setItem('refresh_token', refresh_token);
           localStorage.setItem('token_type', token_type);
 
+          that.authService.checkToken(access_token).subscribe((response: any) => {
+            localStorage.setItem('user', JSON.stringify(response));
+          })
           this.router.navigate(['/']);
         },
         (error: any) => {
@@ -46,7 +49,7 @@ export class SignInComponent implements OnInit {
   }
 
   openSnackBar(message: string) {
-    this.snackBar.open(message, 'Close', { });
+    this.snackBar.open(message, 'Close', {});
   }
 
   ngOnInit(): void {

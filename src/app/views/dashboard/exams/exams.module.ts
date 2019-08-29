@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import { CalendarModule } from 'primeng/calendar';
 
 // Exams Components
 import { ExamCreateComponent } from './exams-create/exams-create.component';
@@ -20,6 +21,7 @@ import { ExamDetailsComponent } from './exam-details/exam-details.component';
 
 import { TabMenuModule } from 'primeng/tabmenu';
 import { ExamHealthPlansComponent } from './exam-health-plan/exam-health-plan.component';
+import { ExamService } from 'src/app/services/exam.service';
 
 
 @NgModule({
@@ -41,6 +43,7 @@ import { ExamHealthPlansComponent } from './exam-health-plan/exam-health-plan.co
     RouterModule,
 
     ButtonModule,
+    CalendarModule,
     CardModule,
     InputTextModule,
     TabMenuModule

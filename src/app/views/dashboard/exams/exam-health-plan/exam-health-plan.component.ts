@@ -11,7 +11,30 @@ export interface HealthInt {
 
 @Component({
   selector: 'app-exam-health-plan-component',
-  templateUrl: './exam-health-plan.component.html'
+  templateUrl: './exam-health-plan.component.html',
+  styles: [`
+    .button-clear{
+      background-color: white;
+      color: red;
+      border-left: none;
+      border-color: lightgray;
+    }
+    .ui-button:enabled:hover{
+      background-color: white;
+      color: red;
+      border-left: none;
+      border-color: lightgray;
+    }
+    .ui-button:enabled:active{
+      background-color: white;
+      color: red;
+      border-left: none;
+      border-color: lightgray;
+    }
+    .ui-button:enabled:focus{
+      box-shadow: none;
+    }
+  `]
 })
 export class ExamHealthPlansComponent implements OnInit, OnDestroy {
 

@@ -3,6 +3,7 @@ import { User } from 'src/app/models/User';
 import { UserService } from 'src/app/services/user.services';
 import { MenuItem } from 'primeng/components/common/menuitem';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ExamService } from 'src/app/services/exam.service';
 
 @Component({
   selector: 'app-exams-create-component',
@@ -22,7 +23,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
       border-radius: 4px;
       position: relative; 
       text-align: center;
-      min-height: 4em
+      min-height: 4em;
+      border: 1px rgba(23, 162, 184) solid;
     }
 
     .wrap-text {
@@ -61,7 +63,7 @@ export class ExamCreateComponent implements OnInit, OnDestroy {
 
   description = '';
 
-  constructor(private userService: UserService, private snackBar: MatSnackBar) { }
+  constructor(private examService: ExamService) { }
 
 
   public onLocationSelected(location: any) {
@@ -98,8 +100,15 @@ export class ExamCreateComponent implements OnInit, OnDestroy {
     }
   }
 
+  save(fileUrl: string) {
+    this.examService.createExam(fileUrl, this.examType.id, this.location.id, this.provider.id, this.healthPlan.id).subscribe((response: any) => {
+    });
+  }
+  returnDateNow(){
+    return new Date();
+  }
   ngOnInit() {
-    this.user = new User({ id: 1, email: 'sit.amet@dolorelitpellentesque.co.uk', fullname: 'Karina O. Maddox' });
+    this.user = new User(JSON.parse(localStorage.getItem('user')));
 
     this.location = {};
     this.examType = {};

@@ -4,9 +4,13 @@
       <label class="text-muted text-uppercase"><strong>Plano de Saúde</strong></label>
     </div>
     <div class="form-group">
-      <input pInputText id="local" type="text" class="form-control" placeholder="Informe o Plano de Saúde..."
-        [(ngModel)]="description" (ngModelChange)="findHealthPlans(description)" />
-      <small class="form-text text-muted"> Exemplo: Uniflex, Ideal etc... </small>
+      <div class="ui-inputgroup">
+        <input pInputText id="local" type="text" class="form-control" placeholder="Informe o Plano de Saúde..."
+          [(ngModel)]="description" (ngModelChange)="findHealthPlans(description)" />
+        <button pButton type="button" icon="pi pi-times" class="button-clear"
+          (click)="description = ''; findHealthPlans(description);"></button>
+      </div>
+      <small *ngIf="noResults" class="form-text text-muted"> Exemplo: Uniflex, Ideal etc... </small>
     </div>
 
     <div *ngIf="!noResults" class="container text-center pt-3">
@@ -19,9 +23,9 @@
     <div *ngIf="noResults" class="container text-center pt-3">
       <div class="row mb-3">
         <div class="offset-md-2 col-12 col-md-8 ">
-          <p class="text-muted">Nenhum resultado encontrado!</p>
+          <p class="text-muted">Plano de Saúde não existe!</p>
           <button (click)="createHealthPlan()" class="btn btn-info w-100 py-3">
-            Cadastrar
+            Salvar
           </button>
         </div>
       </div>

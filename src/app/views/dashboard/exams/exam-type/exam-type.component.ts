@@ -8,8 +8,30 @@ export interface ExamTypeInt {
 
 @Component({
   selector: 'app-exam-type-create-component',
-  templateUrl: './exam-type.component.html'
-  // styleUrls: ['./exams-list.component.scss']
+  templateUrl: './exam-type.component.html',
+  styles: [`
+    .button-clear{
+      background-color: white;
+      color: red;
+      border-left: none;
+      border-color: lightgray;
+    }
+    .ui-button:enabled:hover{
+      background-color: white;
+      color: red;
+      border-left: none;
+      border-color: lightgray;
+    }
+    .ui-button:enabled:active{
+      background-color: white;
+      color: red;
+      border-left: none;
+      border-color: lightgray;
+    }
+    .ui-button:enabled:focus{
+      box-shadow: none;
+    }
+  `]
 })
 export class ExamTypeComponent implements OnInit, OnDestroy {
 
