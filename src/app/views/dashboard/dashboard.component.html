@@ -14,12 +14,6 @@
               <div id="layout-sidebar" class="sidebar d-none d-md-flex bg-info">
                 <div class="sidebar-wrapper">
                   <ul class="nav">
-                    <li class="nav-item d-none">
-                      <a class="nav-link" href="dashboard.html">
-                        <i class="nc-icon nc-chart-pie-35"></i>
-                        <p>Dashboard</p>
-                      </a>
-                    </li>
                     <li class="nav-item" [class.active]="routeId == 'CREATE_EXAM'">
                       <a class="nav-link" [routerLink]="['/exams/new']">
                         <i class="fas fa-plus-square" data-fa-transform="grow-6"></i>
@@ -39,24 +33,6 @@
                         <p>Usuarios</p>
                       </a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link">
-                        <i class="fas fa-hand-holding-heart"></i>
-                        <p>Operadoras</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>Locais de Atendimento</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="nav-link" href="./maps.html">
-                        <i class="fas fa-file-alt"></i>
-                        <p>Tipos de Atendimento</p>
-                      </a>
-                    </li>
                     <hr>
                     <li>
                       <a class="nav-link" [routerLink]="['/sign-in']">
@@ -70,12 +46,6 @@
               <div id="sidebar-mobile" class="sidebar position-fixed d-flex d-md-none bg-info collapsed">
                 <div class="sidebar-wrapper">
                   <ul class="nav">
-                    <li class="nav-item d-none">
-                      <a class="nav-link" href="dashboard.html">
-                        <i class="nc-icon nc-chart-pie-35"></i>
-                        <p>Dashboard</p>
-                      </a>
-                    </li>
                     <li class="nav-item">
                       <a class="nav-link" [routerLink]="['/exams/new']">
                         <i class="fas fa-plus-square" data-fa-transform="grow-6"></i>
@@ -93,25 +63,6 @@
                       <a class="nav-link" [routerLink]="['/users']">
                         <i class="fas fa-user-md"></i>
                         <p>Usuarios</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link">
-                        <i class="fas fa-hand-holding-heart"></i>
-                        <p>Operadoras</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>Locais de Atendimento</p>
-                      </a>
-                    </li>
-
-                    <li>
-                      <a class="nav-link" href="./maps.html">
-                        <i class="fas fa-file-alt"></i>
-                        <p>Tipos de Atendimento</p>
                       </a>
                     </li>
                     <hr>
