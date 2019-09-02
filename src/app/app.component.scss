@@ -1,0 +1,21 @@
+.notification-sidebar-toggle {
+  right: 0;
+  top: 280px;
+  width: 3rem;
+  height: 3rem;
+  position: fixed;
+  transition: right 0.4s cubic-bezier(0.05, 0.74, 0.2, 0.99);
+  z-index: 9999;
+}
+
+.filter-icon {
+  height: 100%;
+  display: flex !important;
+  color: white !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.sidebar-toggled {
+  right: 400px;
+}

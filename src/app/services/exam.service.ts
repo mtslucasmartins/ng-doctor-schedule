@@ -33,6 +33,26 @@ export class ExamService {
     return this.http.post(`${this.baseURL}/graphql`, { query }, this.httpHeaders());
   }
 
+  public findExams(begin: string, end: string, args: string[] = [
+    'id', 'updatedAt', 'photoUrl', 'createdAt', 'description',
+    `examType { id, description }`,
+    `provider { id, description }`,
+    `healthPlan { 
+      provider { id, description } 
+     cutOffDay }`,
+    `location {  id, description}`]) {
+
+    const query = `
+      query {
+        exams(
+          begin: ${begin}, 
+          end: ${end}
+        ) { ${args.join()} }
+      }
+    `;
+    return this.http.post(`${this.baseURL}/graphql`, { query }, this.httpHeaders());
+  }
+
   public upload(file: File) {
     const formData = new FormData();
 

@@ -9,6 +9,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   public sidebarIsOpen: boolean;
 
+  user: any = JSON.parse(localStorage.getItem('user'));
   constructor() { }
 
   public toggleSidebar() {

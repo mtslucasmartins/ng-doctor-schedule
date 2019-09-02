@@ -20,6 +20,8 @@ import { ExamDetailsComponent } from './exam-details/exam-details.component';
 
 import { TabMenuModule } from 'primeng/tabmenu';
 import { ExamHealthPlansComponent } from './exam-health-plan/exam-health-plan.component';
+import { ExamsListComponent } from './exams-list/exams-list.component';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { ExamHealthPlansComponent } from './exam-health-plan/exam-health-plan.co
     ExamProviderComponent,
     ExamDetailsComponent,
     ExamTypeComponent,
-    ExamHealthPlansComponent
+    ExamHealthPlansComponent,
+    ExamsListComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ import { ExamHealthPlansComponent } from './exam-health-plan/exam-health-plan.co
     CardModule,
     InputTextModule,
     TabMenuModule,
+    AutoCompleteModule
   ],
   exports: [
     ExamCreateComponent,

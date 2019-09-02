@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,9 @@ export class AppComponent implements OnInit {
 
   title = 'ng-doctor-schedule';
 
-  constructor(public swUpdate: SwUpdate) { }
+  showFilter: boolean = false;
+
+  constructor(public swUpdate: SwUpdate, private router: Router) { }
 
   public refresh() {
     window.location.reload();
