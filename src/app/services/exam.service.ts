@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +45,24 @@ export class ExamService {
         })
       }
     )
+  }
+
+  public compressionImage(file: File): Observable<Blob> {
+    const formData = new FormData();
+
+    formData.append('file', file);
+
+    return this.http.post(`${environment.compressionImageUrl}/api/v1/image_compressor?size=400`, formData, { responseType: "blob" });
+  }
+
+  public blobToFile(theBlob: any, fileName: string): File {
+    const b: any = theBlob;
+    //A Blob() is almost a File() - it's just missing the two properties below which we will add
+    b.lastModifiedDate = new Date();
+    b.name = fileName;
+
+    //Cast to a File() type
+    return new File([theBlob], theBlob.name, { type: theBlob.type });;
   }
 
   private httpHeaders() {

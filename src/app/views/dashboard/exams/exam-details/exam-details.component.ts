@@ -30,13 +30,15 @@ export class ExamDetailsComponent implements OnInit, OnDestroy {
   }
 
   save() {
-    this.examService.upload(this.file).subscribe((response: any) => {
-      if (response.status === 'success') {
-        let message = `https://s4.ottimizzacontabil.com:55325/storage/${response.record.id}/download`;
-        this.file = null;
-        this.image = null;
-        this.saveExam.emit(message);
-      }
+    this.examService.compressionImage(this.file).subscribe((response: Blob) => {
+      this.examService.upload(this.examService.blobToFile(response, this.file.name)).subscribe((response: any) => {
+        if (response.status === 'success') {
+          let message = `https://s4.ottimizzacontabil.com:55325/storage/${response.record.id}/download`;
+          this.file = null;
+          this.image = null;
+          this.saveExam.emit(message);
+        }
+      })
     })
   }
 
