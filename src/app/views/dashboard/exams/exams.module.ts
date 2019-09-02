@@ -17,12 +17,9 @@ import { ExamLocationComponent } from './exam-location/exam-location.component';
 import { ExamTypeComponent } from './exam-type/exam-type.component';
 import { ExamProviderComponent } from './exam-provider/exam-provider.component';
 import { ExamDetailsComponent } from './exam-details/exam-details.component';
-// import { ExamListComponent } from './exams-list/exams-list.component';
 
 import { TabMenuModule } from 'primeng/tabmenu';
 import { ExamHealthPlansComponent } from './exam-health-plan/exam-health-plan.component';
-import { ExamService } from 'src/app/services/exam.service';
-
 
 @NgModule({
   declarations: [
@@ -46,7 +43,7 @@ import { ExamService } from 'src/app/services/exam.service';
     CalendarModule,
     CardModule,
     InputTextModule,
-    TabMenuModule
+    TabMenuModule,
   ],
   exports: [
     ExamCreateComponent,

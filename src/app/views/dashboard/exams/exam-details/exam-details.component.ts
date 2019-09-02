@@ -1,9 +1,22 @@
 import { Component, OnInit, OnDestroy, Output, EventEmitter, Input } from '@angular/core';
 import { ExamService } from 'src/app/services/exam.service';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-exam-details-create-component',
-  templateUrl: './exam-details.component.html'
+  templateUrl: './exam-details.component.html',
+  styles: [`
+    .centralize-loading{
+      position: absolute;
+      left: 0;
+      right: 0;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+  `]
 })
 export class ExamDetailsComponent implements OnInit, OnDestroy {
 
@@ -14,6 +27,8 @@ export class ExamDetailsComponent implements OnInit, OnDestroy {
   public image: string | ArrayBuffer;
   private file: File;
   public defaultImage = 'assets/images/camera-placeholder.jpg';
+
+  loadingImage: boolean = false;
 
   constructor(private examService: ExamService) { }
 
@@ -30,8 +45,17 @@ export class ExamDetailsComponent implements OnInit, OnDestroy {
   }
 
   save() {
-    this.examService.compressionImage(this.file).subscribe((response: Blob) => {
-      this.examService.upload(this.examService.blobToFile(response, this.file.name)).subscribe((response: any) => {
+    this.loadingImage = true;
+    this.examService.compressionImage(this.file).pipe(
+      finalize(() => {
+        this.loadingImage = false;
+      })
+    ).subscribe((response: Blob) => {
+      this.examService.upload(this.examService.blobToFile(response, this.file.name)).pipe(
+        finalize(() => {
+          this.loadingImage = false;
+        })
+      ).subscribe((response: any) => {
         if (response.status === 'success') {
           let message = `https://s4.ottimizzacontabil.com:55325/storage/${response.record.id}/download`;
           this.file = null;
