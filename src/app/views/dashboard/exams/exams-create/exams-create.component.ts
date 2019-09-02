@@ -13,13 +13,16 @@ import { ExamService } from 'src/app/services/exam.service';
       cursor: pointer;
     }
     
-    .item-selected{
-      background-color: rgba(0,0,0,.2);
+    .item-selected {
+      background-color: #17a2b8;
       box-shadow: 0 7px 7px 0 rgba(0,0,0,.15), 0 0 5px 0 rgba(0,0,0,.15);
     }
-    
+
+    .color-selected{
+      color: white;
+    }
+
     .content-of-item {
-      background-color: rgba(0,0,0,.02);
       border-radius: 4px;
       position: relative; 
       text-align: center;
@@ -36,7 +39,6 @@ import { ExamService } from 'src/app/services/exam.service';
       font-size: 2em;
     }
   `],
-  // styleUrls: ['./exams-list.component.scss']
   encapsulation: ViewEncapsulation.None
 })
 export class ExamCreateComponent implements OnInit, OnDestroy {

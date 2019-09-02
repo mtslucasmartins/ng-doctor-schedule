@@ -14,20 +14,20 @@
               <div id="layout-sidebar" class="sidebar d-none d-md-flex bg-info">
                 <div class="sidebar-wrapper">
                   <ul class="nav">
-                    <li class="nav-item" [class.active]="routeId == 'CREATE_EXAM'">
+                    <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
                       <a class="nav-link" [routerLink]="['/exams/new']">
                         <i class="fas fa-plus-square" data-fa-transform="grow-6"></i>
                         <p>Novo Atendimento</p>
                       </a>
                     </li>
                     <hr>
-                    <li class="nav-item">
+                    <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
                       <a class="nav-link">
                         <i class="fas fa-book-medical" data-fa-transform="grow-6"></i>
                         <p>Atendimentos</p>
                       </a>
                     </li>
-                    <li class="nav-item" [class.active]="routeId == 'LIST_USERS'">
+                    <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
                       <a class="nav-link" [routerLink]="['/users']">
                         <i class="fas fa-user-md"></i>
                         <p>Usuarios</p>
@@ -46,20 +46,20 @@
               <div id="sidebar-mobile" class="sidebar position-fixed d-flex d-md-none bg-info collapsed">
                 <div class="sidebar-wrapper">
                   <ul class="nav">
-                    <li class="nav-item">
+                    <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
                       <a class="nav-link" [routerLink]="['/exams/new']">
                         <i class="fas fa-plus-square" data-fa-transform="grow-6"></i>
                         <p>Novo Atendimento</p>
                       </a>
                     </li>
                     <hr>
-                    <li class="nav-item">
+                    <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
                       <a class="nav-link">
                         <i class="fas fa-book-medical" data-fa-transform="grow-6"></i>
                         <p>Atendimentos</p>
                       </a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
                       <a class="nav-link" [routerLink]="['/users']">
                         <i class="fas fa-user-md"></i>
                         <p>Usuarios</p>

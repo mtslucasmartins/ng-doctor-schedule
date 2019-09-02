@@ -18,14 +18,17 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'exams', component: DashboardComponent, canActivate: [AuthGuard], data: { routeId: 'EXAM' }, children: [
+    path: 'exams', component: DashboardComponent, canActivate: [AuthGuard], children: [
       // { path: '', component: UserListComponent, pathMatch: 'full' },
-      { path: 'new', component: ExamCreateComponent, pathMatch: 'full', data: { routeId: 'CREATE_EXAM' } }
+      { path: 'new', component: ExamCreateComponent, pathMatch: 'full'}
     ]
   },
+  // {
+  //   path:''
+  // },
   {
     path: 'users', component: DashboardComponent, canActivate: [AuthGuard], children: [
-      { path: '', component: UserListComponent, pathMatch: 'full', data: { routeId: 'LIST_USERS' } },
+      { path: '', component: UserListComponent, pathMatch: 'full' },
       { path: 'new', component: UserCreateComponent, pathMatch: 'full' }
     ]
   },

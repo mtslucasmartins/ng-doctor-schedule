@@ -21,7 +21,7 @@
             <div class="content-of-item py-2 h-100" [class.item-selected]="currentStep === i"
               (click)="disabledHealthPlan(i)">
               <div class="f-2em" [ngClass]="item.icon" *ngIf="item.icon"></div>
-              <div class="wrap-text f-14">
+              <div class="wrap-text f-14" [class.color-selected]="currentStep === i">
                 {{item.label}}
               </div>
             </div>
@@ -42,19 +42,19 @@
         </div>
       </div>
       <hr class="m-0">
-      <div *ngIf="currentStep == 0" class="card-body">
+      <div *ngIf="currentStep == 0" class="card-body" [ngClass]="{'selected-item': currentStep == 0}">
         <app-exam-location-create-component [location]="location" (locationSelected)="onLocationSelected($event)">
         </app-exam-location-create-component>
       </div>
-      <div *ngIf="currentStep == 1" class="card-body">
+      <div *ngIf="currentStep == 1" class="card-body" [ngClass]="{'selected-item': currentStep == 1}">
         <app-exam-type-create-component [examType]="examType" (examTypeSelected)="onExamTypeSelected($event)">
         </app-exam-type-create-component>
       </div>
-      <div *ngIf="currentStep == 2" class="card-body">
+      <div *ngIf="currentStep == 2" class="card-body" [ngClass]="{'selected-item': currentStep == 2}">
         <app-exam-provider-create-component [provider]="provider" (providerSelected)="onProviderSelected($event)">
         </app-exam-provider-create-component>
       </div>
-      <div *ngIf="currentStep == 3" class="card-body">
+      <div *ngIf="currentStep == 3" class="card-body" [ngClass]="{'selected-item': currentStep == 3}">
         <app-exam-health-plan-component [healthPlan]="healthPlan" [provider]="provider"
           (healthPlanSelected)="onHealthPlanSelected($event)">
         </app-exam-health-plan-component>
