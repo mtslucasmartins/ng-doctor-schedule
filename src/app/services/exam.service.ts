@@ -52,7 +52,7 @@ export class ExamService {
 
     formData.append('file', file);
 
-    return this.http.post(`${environment.compressionImageUrl}/api/v1/image_compressor?size=800`, formData, { responseType: "blob" });
+    return this.http.post(`${environment.compressionImageUrl}/api/v1/image_compressor?size=1200`, formData, { responseType: "blob" });
   }
 
   public blobToFile(theBlob: any, fileName: string): File {
