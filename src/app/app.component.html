@@ -2,8 +2,5 @@
     Nova versão está disponível! <a href="#" (click)="refresh()">Refresh</a>
 </div>
 <div class="page-container overflow-hidden" [ngClass]="{'h-100': !updateAvailable}">
-    <a class="bg-info notification-sidebar-toggle" [ngClass]="{'d-none':showFilter}">
-        <i class="fas fa-filter fa-lg filter-icon"></i>
-    </a>
     <router-outlet></router-outlet>
 </div>

@@ -9,8 +9,11 @@
         </ol>
       </nav>
     </div>
-    <div class="card p-0 pb-3">
-      <div class="card-body">
+    <!-- <div class="card p-0 pb-3">
+
+      <span>{{}}</span> -->
+
+    <!-- <div class="card-body">
         <div class="ui-g ui-fluid">
           <div class="col-3 py-2">
             <button pButton (click)="setDateToday()" type="button" label="Hoje" class="ui-button-rounded"></button>
@@ -44,9 +47,9 @@
               dateFormat="dd/mm/yy"></p-calendar>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="card-body p-0">
+    <!-- <div class="card-body p-0">
         <table class="table table-borderless table-hover border-top">
           <thead>
             <tr>
@@ -68,12 +71,12 @@
             <tr class="border-top" *ngFor="let exam of exams">
               <td class="d-block"><a href="#">{{ exam.updatedAt | date: 'dd/MM/yyyy HH:mm' }}</a></td>
               <td>
-                <!-- <span class="d-block d-md-none">
+                <span class="d-block d-md-none">
                   <a href="#">{{ user.fullname}}</a><br>
                   <small class="d-block d-md-none text-muted">{{ user.email }}</small>
-                </span> -->
+                </span>
                 <span class="d-block">
-                  <!-- <a href="#">{{ exam.updatedAt | date: 'HH:mm' }}</a> -->
+                 <a href="#">{{ exam.updatedAt | date: 'HH:mm' }}</a> 
                 </span>
               </td>
             </tr>
@@ -104,11 +107,50 @@
             </nav>
           </div>
         </div>
+      </div> -->
+    <!-- </div> -->
+    <div class="card p-3">
+      <div class="row">
+        <div class="col-6">
+          <span><strong>Atendimento</strong>: {{pendingExams[0]?.updatedAt | date:'dd/MM/yyyy HH:mm' || ''}}</span>
+        </div>
+        <div class="col-6">
+          <span><strong>Operadora</strong>: {{pendingExams[0]?.provider.description || ''}}</span></div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <span><strong>Local</strong>: {{pendingExams[0]?.location.description || ''}}</span>
+        </div>
+        <div class="col-6">
+          <span><strong>Plano de Saúde</strong>: {{pendingExams[0]?.healthPlan.description || ''}}</span></div>
+        <div class="col-6">
+          <span><strong>Tipo</strong>: {{pendingExams[0]?.examType.description || ''}}</span>
+        </div>
       </div>
     </div>
-    <div class="card p-0 my-3" style="width: 40em">
-      <img class="img-thumbnail" alt="Teste"
-        srcset="https://s4.ottimizzacontabil.com:55325/storage/QzpcYnVja2V0c1xuZy1kb2N0b3Itc2NoZWR1bGVcZG9jdG9yXDIwMTlcMDlcMDJcNDQ1MDliMjYtNDYwZi00YmJjLWFmOWMtZjlhZjMxNDdiNjI0X18xNTY3NDQzMjU3NzQwMzM0MTU4Mjg1NjEyMzUwMDMwOC5qcGc=">
+    <div class="card p-0 my-3">
+      <div class="row w-100 m-0">
+        <img class="img-thumbnail col-7 p-1" alt="Teste" style="width: 40em" [srcset]="pendingExams[0]?.photoUrl || ''">
+        <div class="col-5 w-100 m-0">
+          <div class="ui-g ui-fluid pt-3">
+            <div class="col-6 pb-2">
+              <input type="text" placeholder="Código do procedimento" pInputText />
+            </div>
+            <div class="col-6 pb-2">
+              <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon">$</span>
+                <input placeholder="Custo" [(ngModel)]="cost" pInputText />
+              </div>
+            </div>
+            <div class="col-6 pb-2">
+              <input type="number" placeholder="Dias para Recebimento" pInputText />
+            </div>
+            <div class="col-6 pb-2">
+              <input type="number" placeholder="Dia de Corte" pInputText />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

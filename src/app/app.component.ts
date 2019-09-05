@@ -13,8 +13,6 @@ export class AppComponent implements OnInit {
 
   title = 'ng-doctor-schedule';
 
-  showFilter: boolean = false;
-
   constructor(public swUpdate: SwUpdate, private router: Router) { }
 
   public refresh() {

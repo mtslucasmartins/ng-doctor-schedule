@@ -33,6 +33,24 @@ export class ExamService {
     return this.http.post(`${this.baseURL}/graphql`, { query }, this.httpHeaders());
   }
 
+  public findPendingExams(args: string[] = [
+    'id', 'updatedAt', 'photoUrl', 'createdAt', 'description',
+    `examType { id, description }`,
+    `provider { id, description }`,
+    `healthPlan {
+      description, 
+      cutOffDay }`,
+    `location { id, description}`]) {
+    const query = `
+      query {
+        pendingExams(
+          pageSize:1
+        ) { ${args.join()} }
+      }
+    `;
+    return this.http.post(`${this.baseURL}/graphql`, { query }, this.httpHeaders());
+  }
+
   public findExams(begin: string, end: string, args: string[] = [
     'id', 'updatedAt', 'photoUrl', 'createdAt', 'description',
     `examType { id, description }`,
@@ -40,8 +58,7 @@ export class ExamService {
     `healthPlan { 
       provider { id, description } 
      cutOffDay }`,
-    `location {  id, description}`]) {
-
+    `location { id, description}`]) {
     const query = `
       query {
         exams(

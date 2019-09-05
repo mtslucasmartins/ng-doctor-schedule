@@ -22,6 +22,8 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import { ExamHealthPlansComponent } from './exam-health-plan/exam-health-plan.component';
 import { ExamsListComponent } from './exams-list/exams-list.component';
 import { AutoCompleteModule } from 'primeng/autocomplete';
+import { InputMaskModule } from 'primeng/inputmask';
+import {SpinnerModule} from 'primeng/spinner';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
     CardModule,
     InputTextModule,
     TabMenuModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    InputMaskModule,
+    SpinnerModule
   ],
   exports: [
     ExamCreateComponent,
